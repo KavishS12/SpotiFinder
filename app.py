@@ -4,14 +4,14 @@ from sklearn.neighbors import NearestNeighbors
 import plotly.express as px
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="Spotify Song Recommender", layout="wide")
+st.set_page_config(page_title="SpotifyFinder", layout="wide")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data.csv")
+    df = pd.read_csv("data_with_genres.csv")
     return df
 
-audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "liveness", "loudness", "speechiness", "tempo", "valence"]
+audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "loudness", "speechiness", "tempo", "valence"]
 
 df = load_data()
 
