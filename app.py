@@ -5,7 +5,7 @@ from sklearn.neighbors import NearestNeighbors
 import plotly.express as px
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="SpotifyFinder", layout="wide")
+st.set_page_config(page_title="SpotiFinder", layout="wide")
 
 @st.cache_data
 def load_data():
