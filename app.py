@@ -36,7 +36,7 @@ def recommend_songs(start_year, end_year, test_feat, weights, selected_genres, m
     # Fit NearestNeighbors model
     model = NearestNeighbors()
     model.fit(weighted_features)
-    n_neighbors = model.kneighbors([weighted_test_feat], n_neighbors=10, return_distance=False)[0]
+    n_neighbors = model.kneighbors([weighted_test_feat], n_neighbors=min(len(year_data),10), return_distance=False)[0]
     
     random_indices = list(n_neighbors)
     random.shuffle(random_indices)
