@@ -12,7 +12,6 @@ def load_data():
     df = pd.read_csv("./data/fuzzy_genre_df.csv")
     return df
 
-# Define audio features without valence and energy
 audio_feats = ["acousticness", "danceability", "instrumentalness", "loudness", "tempo", "speechiness"]
 df = load_data()
 
@@ -51,10 +50,8 @@ def page():
     st.markdown("<h1 style='display:inline'>SpotiFinder</h1> <h3 style='display:inline; color:gray;'>Discover Your Perfect Playlist, One Song at a Time!</h3>", unsafe_allow_html=True)
     st.markdown('##')
 
-    # Main content columns
     col1, col2, col3 = st.columns([10, 1, 10]) 
     
-    # Left column for audio feature sliders
     with col1:
         st.markdown("### Select the Year Range:")
         start_year, end_year = st.slider(
@@ -84,8 +81,6 @@ def page():
             loudness_weight = st.slider('Weight for Loudness', 0.0, 2.0, 1.0)
             tempo_weight = st.slider('Weight for Tempo', 0.0, 2.0, 1.0)
             speechiness_weight = st.slider('Weight for Speechiness', 0.0, 2.0, 1.0)
-
-    # Right side for weight sliders inside a collapsible container
     
     # Genre selection outside sidebar (main content area)
     st.markdown("### Select Genre(s)")
@@ -93,7 +88,6 @@ def page():
     selected_genres = st.multiselect(" Choose one or more genres", options=genres, default=genres)
     st.markdown("#")
 
-    # Define test features without valence and energy
     test_feat = [acousticness, danceability, instrumentalness, loudness, tempo, speechiness]
     weights = [acousticness_weight, danceability_weight, instrumentalness_weight, loudness_weight, tempo_weight, speechiness_weight]
     
